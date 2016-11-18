@@ -1,38 +1,92 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-//#include <conio.h>
-#include <time.h>
 
-void nooflines();
+struct data
+{
+	
+	char ID[10];
+	char name[30];
+	int date,mth,yr;
+
+};
+
+int cmt=0;
+char implines[200][100];
+typedef struct data dt;
+
+
+
+int readDate(char ch[]);
+void readNxtLine(long n);
+void readTime(long n );
+
 
 int main()
 {
-	nooflines();
+	FILE *fp;
+
+	fp=fopen("Programme.html","r");
+	char lines[5000],ch;
+	int i,j;
+	long k1;
+	ch=getc(fp);
+	while(ch!=EOF)
+	{
+		i=0;
+		while(ch!='\n')
+		{
+			lines[i++]=ch;
+			ch=getc(fp);
+			if(ch==EOF)
+				break;
+		}
+		lines[i]='\0';
+		if(ch==EOF)
+			break;
+		j=readDate(lines);
+		ch=getc(fp);
+		if(j==1)
+		{
+			readNxtLine(ftell(fp));
+			break;
+		}
+
+	}
+	fclose(fp);
 	return 0;
 }
 
-void nooflines()
+int readDate(char lines[])
 {
-	char ch[1000];
-	FILE *fp,*f1;
-
-	fp = fopen("Programme.html","r");
-	f1 = fopen("ds.txt","w");
-	int c=0,i=0;
-	while(getc(fp)!=EOF)
+	int i=0;
+	while(lines[i]!='\0')
 	{
-		if(getc(fp)=='\n')
-			c++;
-		else
+		if(lines[i]=='0'||lines[i]=='1'||lines[i]=='2'||lines[i]=='3'||lines[i]=='4'||lines[i]=='5'||lines[i]=='6'||lines[i]=='7'||lines[i]=='8'||lines[i]=='9' && lines[++i]=='-')
 		{
-			ch[i]=getc(fp);
-			fprintf(f1, "%c\n", ch[i]);
-			i++;
+			printf("%s\n",lines);
+			//strcpy(implines[cmt++],lines);
+			return 1;
 		}
-		
 	}
-	printf("%d\n",c);
+}
+
+void readNxtLine(long n)
+{
+	FILE *fp;
+	fp=fopen("Programme.html","r");
+	fseek(fp,n,0);
+	int i=0;
+	char ch,lines[5000];
+	ch=getc(fp);
+	while(ch!='\n')
+	{
+		lines[i++]=ch;
+        ch=getc(fp);
+        if (ch == EOF)
+       	    break;
+	}
+	lines[i]='\0';
+	//strcpy(implines[cmt++],lines);
+	printf("%s\n",lines);
 	fclose(fp);
-	fclose(f1);
 }

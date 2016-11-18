@@ -1,0 +1,67 @@
+font color="">12:39</font>
+<font color="">FP038-SABYASACHI PATRA</font>
+<td><font color="">FP038-SABYASACHI PATRA</font></td>
+<td><font color="">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="777777">FP038-SABYASACHI PATRA</font></td>
+<td><font color="777777">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+td width="80" align="center"><font color="blue">9:18</font></td>
+td width="80" align="center"><font color="blue">8:55</font></td>
+td width="80" align="center"><font color="FFCC00">0:0</font></td>
+td width="80" align="center"><font color="FFCC00">0:0</font></td>
+td width="80" align="center"><font color="FFCC00">0:0</font></td>
+td width="80" align="center"><font color="777777">0:0</font></td>
+td width="80" align="center"><font color="777777">0:0</font></td>
+td width="80" align="center"><font color="blue">9:0</font></td>
+td width="80" align="center"><font color="blue">9:6</font></td>
+td width="80" align="center"><font color="FFCC00">0:0</font></td>
+td width="80" align="center"><font color="FFCC00">0:0</font></td>
+td width="80" align="center"><font color="blue">9:2</font></td>
+td width="80" align="center"><font color="FFCC00">0:0</font></td>
+td width="80" align="center"><font color="blue">9:4</font></td>
+td width="80" align="center"><font color="blue">9:0</font></td>
+td width="80" align="center"><font color="blue">9:2</font></td>
+td width="80" align="center"><font color="FFCC00">0:0</font></td>
+td width="80" align="center"><font color="FFCC00">0:0</font></td>
+td width="80" align="center"><font color="blue">9:6</font></td>
+td width="80" align="center"><font color="">12:39</font></td>
+td width="80" align="center"><font color="">0:0</font></td>
+font color="">12:39</font>
+<font color="">FP038-SABYASACHI PATRA</font>
+<td><font color="">FP038-SABYASACHI PATRA</font></td>
+<td><font color="">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="777777">FP038-SABYASACHI PATRA</font></td>
+<td><font color="777777">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="FFCC00">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
+<td><font color="blue">FP038-SABYASACHI PATRA</font></td>
