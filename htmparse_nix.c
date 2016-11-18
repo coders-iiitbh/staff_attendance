@@ -27,7 +27,7 @@ int main()
 
 	fp=fopen("Programme.html","r");
 	char lines[5000],ch;
-	int i,j;
+	int i=0,j;
 	long k1;
 	ch=getc(fp);
 	while(ch!=EOF)
@@ -45,11 +45,11 @@ int main()
 			break;
 		j=readDate(lines);
 		ch=getc(fp);
-		if(j==1)
-		{
-			readNxtLine(ftell(fp));
-			break;
-		}
+		//if(j==1)
+		//{
+	//		readNxtLine(ftell(fp));
+	//		break;
+	//	}
 
 	}
 	fclose(fp);
@@ -61,16 +61,17 @@ int readDate(char lines[])
 	int i=0;
 	while(lines[i]!='\0')
 	{
-		if(lines[i]=='0'||lines[i]=='1'||lines[i]=='2'||lines[i]=='3'||lines[i]=='4'||lines[i]=='5'||lines[i]=='6'||lines[i]=='7'||lines[i]=='8'||lines[i]=='9' && lines[++i]=='-')
+		if(lines[i]=='2' && lines[++i]=='-')
 		{
-			printf("%s\n",lines);
+			fprintf(stdout,"%s\n",lines);
 			//strcpy(implines[cmt++],lines);
-			return 1;
+			return 1;		
 		}
+		i++;
 	}
 }
 
-void readNxtLine(long n)
+/*void readNxtLine(long n)
 {
 	FILE *fp;
 	fp=fopen("Programme.html","r");
@@ -89,4 +90,4 @@ void readNxtLine(long n)
 	//strcpy(implines[cmt++],lines);
 	printf("%s\n",lines);
 	fclose(fp);
-}
+}*/
