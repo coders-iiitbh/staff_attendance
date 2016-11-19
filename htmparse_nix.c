@@ -4,9 +4,9 @@
 struct data
 {
 	
-	char stat[10];// TO STORE THE STATUS OF THE DAY 
+	char stat[5];// TO STORE THE STATUS OF THE DAY 
 	char name[30];// TO STORE THE NAME AND ID
-	char date[50];// TO STORE THE DATE
+	char date[15];// TO STORE THE DATE
 	char inpTime[20];// TO STORE THE INPUT TIME
 	char toTime[20];// TO STORE THE TOTAL TIME
 	char outTime[20];// TO STORE THE OUTPUT TIME
@@ -28,6 +28,8 @@ void getoutTime(); // TO EXTRACT OUT TIME
 void gettotalTime(); // TO EXTRACT TOTAL TIME
 void getstat();// TO EXTRACT THE STATUS OF THE DAY
 void nullData();// TO NULLIFY EACH ARRAY
+void display();// TO DISPLAY THE DETAILS
+void whichmonth(char ch,char ch1[]);// TO RETURN THE MONTH NAME
 
 
 int main()
@@ -67,6 +69,7 @@ int main()
 	}
 	fclose(fp);
 	len=lenMLines();
+	nullData();
 	i=-1;
 	while(i<125)
 	{
@@ -85,6 +88,7 @@ int main()
 		nullData();
 	}
 		fclose(fp1);
+		display();
 	return 0;
 }
 
@@ -334,5 +338,79 @@ void nullData()
 		ht.inpTime[i]='\0';
 		ht.outTime[i]='\0';
 		ht.toTime[i]='\0';
+	}
+	for(i=0;i<5;i++)
+		ht.stat[i]='\0';
+	for(i=0;i<15;i++)
+		ht.date[i]='\0';
+	for(i=0;i<30;i++)
+		ht.name[i]='\0';
+}
+
+
+void display()
+{
+	getIDName(implines[1]);
+	int i=0;
+	printf("NAME: ");
+	while(ht.name[i]!='\0')
+	{
+		if(ht.name[i]=='-')
+		{
+			i++;
+			while(ht.name[i]!='\0')
+			{
+				printf("%c",ht.name[i]);
+				i++;
+			}
+			break;
+		}
+		i++;
+	}
+	printf("\n");
+	i=0;
+	getDate(implines[0]);
+	char mnt[20];
+	while(ht.date[i]!='\0')
+	{
+		if(ht.date[i]=='-' && ht.date[i+2]=='-')
+		{
+			whichmonth(ht.date[1],mnt);
+			break;
+		}
+		i++;
+	}
+	printf("MONTH: ");
+	printf("%s\n",mnt);
+}
+
+void whichmonth(char dt,char mt[])
+{
+	switch(dt)
+	{
+		case '1': mt="JANUARY";
+					break;
+		case '2': mt="FEBRURAY";
+					break;
+		case '3': mt="MARCH";
+					break;
+		case '4': mt="APRIL";
+					break;
+		case '5': mt="MAY";
+					break;
+		case '6': mt="JUNE";
+					break;
+		case '7': mt="JULY";
+					break;
+		case '8': mt="AUGUST";
+					break;
+		case '9': mt="SEPTEMBER";
+					break;
+	//	case '10': mt="OCTOBER";
+	//				break;
+	//	case '11': mt="NOVEMBER";
+	//				break;
+	//	case '12': mt="DECEMBER";
+	//				break;
 	}
 }
