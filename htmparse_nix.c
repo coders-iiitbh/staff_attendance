@@ -27,6 +27,8 @@ void getinTime(); // TO EXTRACT IN TIME
 void getoutTime(); // TO EXTRACT OUT TIME
 void gettotalTime(); // TO EXTRACT TOTAL TIME
 void getstat();// TO EXTRACT THE STATUS OF THE DAY
+void nullData();// TO NULLIFY EACH ARRAY
+
 
 int main()
 {
@@ -80,7 +82,7 @@ int main()
 		fprintf(fp1,"%s\t",ht.toTime);
 		getstat(implines[++i]);
 		fprintf(fp1,"%s\n",ht.stat);
-		//i++;
+		nullData();
 	}
 		fclose(fp1);
 	return 0;
@@ -323,3 +325,14 @@ void getstat(char ch[])
 	}
 }
 
+
+void nullData()
+{
+	int i;
+	for(i=0;i<20;i++)
+	{
+		ht.inpTime[i]='\0';
+		ht.outTime[i]='\0';
+		ht.toTime[i]='\0';
+	}
+}
