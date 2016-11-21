@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+#include <stdlib.h>
 struct data
 {
 	
@@ -15,6 +15,7 @@ struct data
 
 int cmt=0;
 char implines[200][100];
+char mnt[20];
 typedef struct data dt;
 dt ht;
 
@@ -29,7 +30,7 @@ void gettotalTime(); // TO EXTRACT TOTAL TIME
 void getstat();// TO EXTRACT THE STATUS OF THE DAY
 void nullData();// TO NULLIFY EACH ARRAY
 void display();// TO DISPLAY THE DETAILS
-void whichmonth(char ch,char ch1[]);// TO RETURN THE MONTH NAME
+void whichmonth(int n);// TO RETURN THE MONTH NAME
 
 
 int main()
@@ -76,7 +77,7 @@ int main()
 		getDate(implines[++i]);
 		fprintf(fp1,"%s\t",ht.date);
 		getIDName(implines[++i]);
-		fprintf(fp1,"%s\t",ht.name);
+		//fprintf(fp1,"%s\t",ht.name);
 		getinTime(implines[++i]);
 		fprintf(fp1,"%s\t",ht.inpTime);
 		getoutTime(implines[++i]);
@@ -369,48 +370,56 @@ void display()
 	}
 	printf("\n");
 	i=0;
+	int j=0;
+	char a[3];
 	getDate(implines[0]);
-	char mnt[20];
+	
 	while(ht.date[i]!='\0')
 	{
-		if(ht.date[i]=='-' && ht.date[i+2]=='-')
+		if(ht.date[i]=='-')
 		{
-			whichmonth(ht.date[1],mnt);
+			i++;
+			while(ht.date[i]!='-')
+			{
+				a[j]=ht.date[i];
+				i++;
+				j++;
+			}
+			whichmonth(atoi(a));
 			break;
 		}
 		i++;
 	}
-	printf("MONTH: ");
-	printf("%s\n",mnt);
+	printf("MONTH:%s\n",mnt);
 }
 
-void whichmonth(char dt,char mt[])
+void whichmonth(int d)
 {
-	switch(dt)
+	switch(d)
 	{
-		case '1': mt="JANUARY";
+		case 1: strcpy(mnt,"JANUARY");
 					break;
-		case '2': mt="FEBRURAY";
+		case 2: strcpy(mnt,"FEBRUARY");
 					break;
-		case '3': mt="MARCH";
+		case 3: strcpy(mnt,"MARCH");
 					break;
-		case '4': mt="APRIL";
+		case 4: strcpy(mnt,"APRIL");
 					break;
-		case '5': mt="MAY";
+		case 5: strcpy(mnt,"MAY");
 					break;
-		case '6': mt="JUNE";
+		case 6: strcpy(mnt,"JUNE");
 					break;
-		case '7': mt="JULY";
+		case 7: strcpy(mnt,"JULY");
 					break;
-		case '8': mt="AUGUST";
+		case 8: strcpy(mnt,"AUGUST");
 					break;
-		case '9': mt="SEPTEMBER";
+		case 9: strcpy(mnt,"SEPTEMBER");
 					break;
-	//	case '10': mt="OCTOBER";
-	//				break;
-	//	case '11': mt="NOVEMBER";
-	//				break;
-	//	case '12': mt="DECEMBER";
-	//				break;
+		case 10: strcpy(mnt,"OCTOBER");
+					break;
+		case 11: strcpy(mnt,"NOVEMBER");
+					break;
+		case 12: strcpy(mnt,"DECEMBER");
+					break;
 	}
 }
