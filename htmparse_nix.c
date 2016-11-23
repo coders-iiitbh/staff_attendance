@@ -16,6 +16,7 @@ struct data
 int cmt=0;
 char implines[200][100];
 char mnt[20];
+//char dbn[20];
 typedef struct data dt;
 dt ht;
 
@@ -31,7 +32,7 @@ void getstat();// TO EXTRACT THE STATUS OF THE DAY
 void nullData();// TO NULLIFY EACH ARRAY
 void display();// TO DISPLAY THE DETAILS
 void whichmonth(int n);// TO RETURN THE MONTH NAME
-
+void getdbname(); //TO GET THE DATABASE NAME
 
 int main()
 {
@@ -72,20 +73,20 @@ int main()
 	len=lenMLines();
 	nullData();
 	i=-1;
-	while(i<125)
+	while(i<len-2)
 	{
 		getDate(implines[++i]);
-		fprintf(fp1,"%s\t",ht.date);
+		fprintf(fp1,"%s ",ht.date);
 		getIDName(implines[++i]);
 		//fprintf(fp1,"%s\t",ht.name);
 		getinTime(implines[++i]);
-		fprintf(fp1,"%s\t",ht.inpTime);
+		fprintf(fp1,"%s ",ht.inpTime);
 		getoutTime(implines[++i]);
-		fprintf(fp1,"%s\t",ht.outTime);
+		fprintf(fp1,"%s ",ht.outTime);
 		gettotalTime(implines[++i]);
-		fprintf(fp1,"%s\t",ht.toTime);
+		fprintf(fp1,"%s ",ht.toTime);
 		getstat(implines[++i]);
-		fprintf(fp1,"%s\n",ht.stat);
+		fprintf(fp1,"%s \n",ht.stat);
 		nullData();
 	}
 		fclose(fp1);
@@ -132,7 +133,7 @@ long readNxtLine(long n)
 int lenMLines()
 {
 	int i=0,c=0;
-	while(implines[i][0])
+	while(implines[i][0]=='<' || implines[i][0]=='t')
 	{
 		c++;
 		i++;
@@ -140,6 +141,30 @@ int lenMLines()
 	return c;
 }
 
+void getdbname()
+{
+	int i=0;
+	int j=0;
+	char a[3];
+	getDate(implines[0]);
+	
+	while(ht.date[i]!='\0')
+	{
+		if(ht.date[i]=='-')
+		{
+			i++;
+			while(ht.date[i]!='-')
+			{
+				a[j]=ht.date[i];
+				i++;
+				j++;
+			}
+			whichmonth(atoi(a));
+			break;
+		}
+		i++;
+	}
+}
 
 void getDate(char ch[])
 {
@@ -352,23 +377,34 @@ void nullData()
 void display()
 {
 	getIDName(implines[1]);
-	int i=0;
-	printf("NAME: ");
+	int i=0,k=0,l=0;
+	char Name[20],id[6];
+	printf("ID: ");
 	while(ht.name[i]!='\0')
 	{
 		if(ht.name[i]=='-')
 		{
+			l=k;
+			k=0;
 			i++;
 			while(ht.name[i]!='\0')
 			{
-				printf("%c",ht.name[i]);
+				Name[k]=ht.name[i];
 				i++;
+				k++;
 			}
 			break;
 		}
+		else
+		{
+			id[k]=ht.name[i];
+			k++;
+		}
 		i++;
 	}
-	printf("\n");
+	id[++l]='\0';
+	printf("%s\t",id);
+	printf("NAME: %s\t     ",Name);
 	i=0;
 	int j=0;
 	char a[3];
@@ -390,7 +426,9 @@ void display()
 		}
 		i++;
 	}
-	printf("MONTH:%s\n",mnt);
+	printf("MONTH: %s\n\n",mnt);
+	printf("                           ATTENDANCE                     \n\n");
+	printf("-----------------------------------------------------------------\n\n");
 }
 
 void whichmonth(int d)
@@ -423,3 +461,4 @@ void whichmonth(int d)
 					break;
 	}
 }
+
