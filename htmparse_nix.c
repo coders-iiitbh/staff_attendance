@@ -378,7 +378,7 @@ void display()
 {
 	getIDName(implines[1]);
 	int i=0,k=0,l=0;
-	char Name[20],id[6];
+	char Name[16],id[6];
 	printf("ID: ");
 	while(ht.name[i]!='\0')
 	{
@@ -429,6 +429,76 @@ void display()
 	printf("MONTH: %s\n\n",mnt);
 	printf("                           ATTENDANCE                     \n\n");
 	printf("-----------------------------------------------------------------\n\n");
+
+	int nm=0;
+	i=0;
+	printf("DATE:\t\t\tINTIME\tOUTTIME  STATUS\t \n\n");
+	for (i = 0;i<21;i++)
+    {
+    getDate(implines[nm]);
+    getinTime(implines[nm+2]);
+    getoutTime(implines[nm+3]);
+    getstat(implines[nm+5]);
+
+
+   
+	printf("%s\t\t",ht.date);
+    printf("%s\t",ht.inpTime);
+
+    printf("%s\t",ht.outTime);
+	printf("%s\t\t\t",ht.stat);
+    printf("\n\n");
+    nm = nm+6;
+    nullData();
+   	}
+
+
+	l=0;
+	int th,tm;
+	long int total;
+	char date[30];
+    char ar[5];
+
+	int m,n,p;
+	m = 4;
+	int h,mi,w;
+	int w1hr,w2hr,w3hr;
+	int w1min,w2min,w3min;
+	w1hr  = 0;
+	w1min = 0;
+	w2hr = 0;
+	w2min = 0;
+	w3hr = 0;
+	w3min = 0;
+	h = 0;
+	mi = 0;
+	for (i = 0;i<20;i++)
+	{
+    gettotalTime(implines[m]);
+    strcpy(ar,ht.toTime);
+
+    j = (ar[0]-'0');
+    h = h+j;
+	if (i<7)
+	  w1hr = (w1hr + j);
+	if ((i>=7)&&(i<14))
+	  w2hr = (w2hr + j);
+	if ((i>=14)&&(i<21))
+	 w3hr = (w3hr + j);
+    if (ar[2]!='0')
+    mi= mi+((ar[2]-'0')*10)+(ar[3]-'0');
+	for (p = 0;p<12;p++)
+	{
+    ar[p]='\0';
+	 }
+	 m = m+6;
+	}
+	
+	total = ((h *3600)+(mi*60));
+	th  = (total /3600);
+	tm  = ((total % 3600)/60);
+	printf("Total working hours in the current month :- %d hours %d minutes\n\n\n",th,tm);
+	
 }
 
 void whichmonth(int d)
